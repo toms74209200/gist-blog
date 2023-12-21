@@ -1,0 +1,8 @@
+{
+    "deno.enable": true,
+    "deno.path": "/deno/bin/deno",
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+    }
+}
