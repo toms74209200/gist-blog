@@ -4,7 +4,7 @@ const handler = (req: Request): Response => {
   return serveFile(req, "./index.html");
 }
 
-const server = Deno.listen({ port: Deno.env.get("PORT") });
+const server = Deno.listen({ port: parseInt(Deno.env.get("PORT") ?? "8000") });
 
 for await (const conn of server) {
   for await (const { request, respondWith } of Deno.serveHttp(conn)) {
