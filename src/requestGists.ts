@@ -4,8 +4,7 @@ export const requestGists = async (contents: string[]) => {
   }
   const promises = contents.map(async (gistId) => {
     const response = await fetch(`https://api.github.com/gists/${gistId}`);
-    const gist = await response.json();
-    return gist;
+    return response.json();
   });
 
   return await Promise.all(promises);
