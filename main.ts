@@ -1,8 +1,8 @@
-import { serveFile } from "https://deno.land/std/http/file_server.ts";
+import { serveDir } from "https://deno.land/std/http/file_server.ts";
 
 const handler = (req: Request): Response => {
-  return serveFile(req, "./index.html");
-}
+  return serveDir(req, { fsRoot: "./public" });
+};
 
 const server = Deno.listen({ port: parseInt(Deno.env.get("PORT") ?? "8000") });
 
