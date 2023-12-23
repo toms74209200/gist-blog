@@ -1,4 +1,4 @@
-import { serveDir } from "https://deno.land/std/http/file_server.ts";
+import { serveDir } from "std/http/file_server";
 
 const handler = (req: Request): Response => {
   return serveDir(req, { fsRoot: "./public" });

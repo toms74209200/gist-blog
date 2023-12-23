@@ -1,7 +1,7 @@
 /// <reference lib="dom"/>
 import { contents } from "./contents.ts";
 import { requestGists } from "./requestGists.ts";
-import { render } from "https://deno.land/x/gfm/mod.ts";
+import { render } from "gfm";
 const main = async () => {
   const gists = await requestGists(contents);
 
