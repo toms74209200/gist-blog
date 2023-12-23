@@ -13,6 +13,11 @@ export const getPosts = async (contens: string[]): Promise<Post[]> => {
   return gists.map(gistToPost);
 };
 
+export const getPost = async (slug: string): Promise<Post> => {
+  const gist = await requestGists([slug]);
+  return gistToPost(gist[0]);
+};
+
 export const gistToPost = (gist: any): Post => {
   const filename = Object.keys(gist.files)[0];
   const file = gist.files[filename];

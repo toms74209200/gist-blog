@@ -1,25 +1,25 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { Post, getPosts } from "@/src/components/posts.ts";
+import { getPosts, Post } from "@/src/components/posts.ts";
 import { contents } from "@/src/contents.ts";
 
 export const handler: Handlers<Post[]> = {
   async GET(_req, ctx) {
     const posts = await getPosts(contents);
     return ctx.render(posts);
-  }
-}
+  },
+};
 
 const BlogIndexPage = (props: PageProps<Post[]>) => {
-const posts = props.data;
-return (
-  <main class="max-w-screen-md px-4 pt-16 mx-auto">
+  const posts = props.data;
+  return (
+    <main class="max-w-screen-md px-4 pt-16 mx-auto">
       <h1 class="text-5xl font-bold">Blog</h1>
       <div class="mt-8">
         {posts.map((post) => <PostCard post={post} />)}
       </div>
     </main>
-)
-}
+  );
+};
 
 const PostCard = (props: { post: Post }) => {
   const { post } = props;
@@ -30,11 +30,7 @@ const PostCard = (props: { post: Post }) => {
           {post.title}
         </h3>
         <time class="text-gray-500">
-          {new Date(post.publishedAt).toLocaleDateString("en-us", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
+          {new Date(post.publishedAt).toLocaleDateString("ja-JP")}
         </time>
         <div class="mt-4 text-gray-900">
           {post.snippet}
@@ -42,6 +38,6 @@ const PostCard = (props: { post: Post }) => {
       </a>
     </div>
   );
-}
+};
 
 export default BlogIndexPage;
