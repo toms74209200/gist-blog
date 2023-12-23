@@ -28,6 +28,7 @@
 		"vscode": {
 			"extensions": [
 				"denoland.vscode-deno",
+				"bradlc.vscode-tailwindcss"
 			]
 		}
 	},

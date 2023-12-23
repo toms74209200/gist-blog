@@ -1,13 +1,13 @@
-import { serveDir } from "std/http/file_server";
+/// <reference no-default-lib="true" />
+/// <reference lib="dom" />
+/// <reference lib="dom.iterable" />
+/// <reference lib="dom.asynciterable" />
+/// <reference lib="deno.ns" />
 
-const handler = (req: Request): Response => {
-  return serveDir(req, { fsRoot: "./public" });
-};
+import "$std/dotenv/load.ts";
 
-const server = Deno.listen({ port: parseInt(Deno.env.get("PORT") ?? "8000") });
+import { start } from "$fresh/server.ts";
+import manifest from "./fresh.gen.ts";
+import config from "./fresh.config.ts";
 
-for await (const conn of server) {
-  for await (const { request, respondWith } of Deno.serveHttp(conn)) {
-    respondWith(handler(request));
-  }
-}
+await start(manifest, config);
