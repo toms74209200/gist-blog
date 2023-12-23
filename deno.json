@@ -1,4 +1,8 @@
 {
+  "tasks": {
+    "build": "deno run --allow-read --allow-write --allow-env bundle.ts ",
+    "launch": "deno run --allow-read --allow-net --allow-env main.ts"
+  },
   "imports": {
     "std/http/file_server": "https://deno.land/std@0.210.0/http/file_server.ts",
     "emit": "https://deno.land/x/emit@0.32.0/mod.ts",
