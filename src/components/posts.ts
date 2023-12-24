@@ -22,7 +22,7 @@ export const gistToPost = (gist: any): Post => {
   const filename = Object.keys(gist.files)[0];
   const file = gist.files[filename];
   const content = file.content;
-  const lines = content.split("\n");
+  const lines = content.replace("\n\n", "\n").split("\n");
   const title = lines[0].replace("#", "").trim();
   const publishedAt = new Date(gist.created_at);
   const snippet = lines[1].trim();
