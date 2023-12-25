@@ -5,6 +5,9 @@ on:
     branches:
       - master
 
+env:
+  CONFIG_ID: ${{ secrets.CONFIG_ID }}
+
 permissions:
   contents: read
   pages: write
