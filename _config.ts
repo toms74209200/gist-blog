@@ -5,6 +5,7 @@ import postcss from "lume/plugins/postcss.ts";
 
 const site = lume();
 
+site.ignore("README.md");
 site.use(jsx_preact());
 site.use(tailwindcss());
 site.use(postcss());
