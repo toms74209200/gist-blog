@@ -8,14 +8,11 @@
             "request": "launch",
             "name": "Launch Program",
             "type": "node",
-            "program": "${workspaceFolder}/dev.ts",
             "cwd": "${workspaceFolder}",
-            "runtimeExecutable": "/deno/bin/deno",
+            "runtimeExecutable": "bash",
             "runtimeArgs": [
-                "run",
-                "-A",
-                "--watch=static/,routes/",
-                "--inspect-wait"
+                "-c",
+                "echo \"import 'lume/cli.ts'\" | deno run --inspect-wait --unstable -A - -s",
             ],
             "attachSimplePort": 9229
         }

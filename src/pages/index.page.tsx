@@ -1,16 +1,12 @@
-import { Handlers, PageProps } from "$fresh/server.ts";
 import { getPosts, Post } from "@/src/components/posts.ts";
 import { contents } from "@/src/contents.ts";
 
-export const handler: Handlers<Post[]> = {
-  async GET(_req, ctx) {
-    const posts = await getPosts(contents);
-    return ctx.render(posts);
-  },
-};
+export const title = "test";
+export const url = "/";
+export const layout = "layout.tsx";
 
-const BlogIndexPage = (props: PageProps<Post[]>) => {
-  const posts = props.data;
+const BlogIndexPage = async () => {
+  const posts = await getPosts(contents);
   return (
     <main class="max-w-screen-md px-4 pt-16 mx-auto">
       <h1 class="text-5xl font-bold">Blog</h1>
