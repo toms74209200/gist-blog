@@ -1,6 +1,6 @@
 import { assertEquals } from "https://deno.land/std/assert/assert_equals.ts";
 import { assert } from "https://deno.land/std/assert/assert.ts";
-import { getPost, getPosts, gistToPost } from "@/src/components/posts.ts";
+import { getPost, getPosts, gistToPost } from "@/src/models/posts.ts";
 
 Deno.test("getPosts should return posts", async () => {
   const posts = await getPosts(["a8d11539dbfa09a250ae89c8afbadabd"]);

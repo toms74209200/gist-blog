@@ -1,4 +1,4 @@
-import { Post } from "@/src/components/posts.ts";
+import { Post } from "@/src/models/posts.ts";
 import { CSS, render } from "gfm";
 
 export const PostPage = (post: Post) => {

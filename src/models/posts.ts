@@ -1,4 +1,4 @@
-import { requestGists } from "@/src/requestGists.ts";
+import { requestGists } from "@/src/models/requestGists.ts";
 
 export interface Post {
   slug: string;

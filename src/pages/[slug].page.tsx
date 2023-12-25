@@ -1,6 +1,6 @@
-import { getPosts } from "@/src/components/posts.ts";
+import { getPosts } from "@/src/models/posts.ts";
 import { contents } from "@/src/contents.ts";
-import { PostPage } from "@/src/components/postPage.tsx";
+import { PostPage } from "@/src/components/PostPage.tsx";
 import { renderToString } from "preact-render-to-string";
 
 export const layout = "layout.tsx";
