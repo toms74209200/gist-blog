@@ -10,7 +10,7 @@ async function* PostPages() {
   const postPages = posts.map((post) => {
     return {
       title: post.title,
-      url: `/${post.slug}`,
+      url: `./${post.slug}`,
       content: renderToString(PostPage(post)),
     };
   });
