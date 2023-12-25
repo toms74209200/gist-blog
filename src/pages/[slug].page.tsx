@@ -1,15 +1,17 @@
-import { getPosts } from "@/src/models/posts.ts";
-import { contents } from "@/src/contents.ts";
-import { PostPage } from "@/src/components/PostPage.tsx";
 import { renderToString } from "preact-render-to-string";
+import { PostPage } from "@/src/components/PostPage.tsx";
+import { getPosts } from "@/src/models/posts.ts";
+import { fetchConfig } from "@/src/models/fetchConfig.ts";
+import { configId } from "@/src/models/configId.ts";
 
 export const layout = "layout.tsx";
 
 async function* PostPages() {
-  const posts = await getPosts(contents);
+  const config = await fetchConfig(configId);
+  const posts = await getPosts(config.contents);
   const postPages = posts.map((post) => {
     return {
-      title: post.title,
+      title: `${post.title} | ${config.title}`,
       url: `/${post.slug}.html`,
       content: renderToString(PostPage(post)),
     };
