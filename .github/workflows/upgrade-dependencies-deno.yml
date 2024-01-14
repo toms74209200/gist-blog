@@ -1,0 +1,54 @@
+name: Upgrade dependencies for Deno
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "0 9 * * 3"
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - name: Update dependencies with udd
+        id: run-deno-udd
+        env:
+          NO_COLOR: true
+        run: |
+          {
+            echo 'UDD_RESULT<<EOF'
+            deno run --allow-all https://deno.land/x/udd/main.ts $(find . -type f | grep -E ".*\.([mc]?(ts|js)|(ts|js)x?)$" -)
+            echo EOF
+          } >> $GITHUB_OUTPUT
+      - uses: peter-evans/create-pull-request@v3
+        id: cpr
+        with:
+          commit-message: ":arrow_up: Update deno dependencies"
+          title: Update Deno dependencies
+          body: |-
+            Some external modules are stale.
+            <details><summary>Details</summary><div>
+
+            ```
+            ${{ steps.run-deno-udd.outputs.UDD_RESULT }}
+            ```
+
+            </div></details>
+          branch: deno-dependency-updates
+          author: github-actions[bot] <noreply@github.com>
+          delete-branch: true
+      - name: Enable auto-merge
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{ steps.cpr.outputs.pull-request-url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
