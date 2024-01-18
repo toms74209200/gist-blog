@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
 
 env:
   CONFIG_ID: ${{ secrets.CONFIG_ID }}
