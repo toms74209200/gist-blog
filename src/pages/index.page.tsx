@@ -12,7 +12,7 @@ export const layout = "layout.tsx";
 const BlogIndexPage = async () => {
   const posts = await getPosts(config.contents);
   return (
-    <main>
+    <main className={"pt-16"}>
       <h1 className="text-5xl font-bold">{config.title}</h1>
       <div className="mt-8">
         {posts.map((post) => <PostCard post={post} />)}
