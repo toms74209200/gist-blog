@@ -14,8 +14,8 @@
   "imports": {
     "@/": "./",
     "lume/": "https://deno.land/x/lume@v2.0.3/",
-    "$std/": "https://deno.land/std@0.213.0/",
-    "gfm": "https://deno.land/x/gfm@0.5.0/mod.ts",
+    "$std/": "https://deno.land/std@0.214.0/",
+    "gfm": "https://deno.land/x/gfm@0.6.0/mod.ts",
     "preact-render-to-string": "npm:preact-render-to-string"
   }
 }
