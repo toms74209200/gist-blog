@@ -13,8 +13,8 @@
   },
   "imports": {
     "@/": "./",
-    "lume/": "https://deno.land/x/lume@v2.1.1/",
-    "$std/": "https://deno.land/std@0.219.1/",
+    "lume/": "https://deno.land/x/lume@v2.1.2/",
+    "$std/": "https://deno.land/std@0.220.1/",
     "gfm": "https://deno.land/x/gfm@0.6.0/mod.ts",
     "preact-render-to-string": "npm:preact-render-to-string"
   }
