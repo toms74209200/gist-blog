@@ -5,6 +5,7 @@ import { fetchConfig } from "@/src/models/fetchConfig.ts";
 import { configId } from "@/src/models/configId.ts";
 
 export const layout = "layout.tsx";
+export const openGraphLayout = "og_image.tsx";
 
 async function* PostPages() {
   const config = await fetchConfig(configId);
