@@ -5,7 +5,11 @@ import postcss from "lume/plugins/postcss.ts";
 import ogImages from "lume/plugins/og_images.ts";
 import metas from "lume/plugins/metas.ts";
 
-const site = lume();
+const site = lume(
+  {
+    location: new URL(Deno.env.get("LOCATION") || "http://localhost:3000"),
+  },
+);
 
 site.ignore("README.md");
 site.use(jsx_preact());
