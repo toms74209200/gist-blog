@@ -1,7 +1,9 @@
 const SatoriOGImage = (
   { title }: { title: string },
 ) => {
-  const [pageTitle, blogTitle] = title.split("|");
+  const [pageTitle, blogTitle] = title.includes("|")
+    ? title.split("|")
+    : [null, title];
   return (
     <div
       className={"h-full w-full " +
