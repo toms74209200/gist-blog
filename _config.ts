@@ -24,8 +24,8 @@ site.use(ogImages(
   {
     cache: true,
     satori: {
-      width: 600,
-      height: 400,
+      width: 1200,
+      height: 630,
       fonts: [
         {
           name: USE_FONT,

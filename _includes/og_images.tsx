@@ -8,10 +8,15 @@ export default function ({ title }: { title: string }) {
     ? {
       position: "absolute",
       bottom: "1rem",
-      right: "1rem",
+      right: "3rem",
       fontSize: "1.5rem",
     }
-    : { fontSize: "2.25rem" };
+    : {
+      margin: "1rem",
+      maxWidth: "630px",
+      fontSize: "3.75rem",
+      lineHeight: 1.5,
+    };
   return (
     <div
       style={{
@@ -27,11 +32,20 @@ export default function ({ title }: { title: string }) {
       }}
     >
       {pageTitle && (
-        <div style={{ margin: "1rem", fontSize: "2.25rem" }}>
+        <p
+          style={{
+            margin: "1rem",
+            maxWidth: "630px",
+            fontSize: "3.75rem",
+            lineHeight: 1.5,
+            wordBreak: "break-word",
+            whiteSpace: "normal",
+          }}
+        >
           {pageTitle.trim()}
-        </div>
+        </p>
       )}
-      <div style={blogTitleStyle}>{blogTitle.trim()}</div>
+      <p style={blogTitleStyle}>{blogTitle.trim()}</p>
     </div>
   );
 }
