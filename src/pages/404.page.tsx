@@ -1,6 +1,7 @@
 export const title = "404 Not Found";
 export const url = "/404.html";
 export const layout = "layout.tsx";
+export const openGraphLayout = "og_images.tsx";
 
 const NotFoundPage = () => {
   return (

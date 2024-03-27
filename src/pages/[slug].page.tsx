@@ -1,10 +1,11 @@
-import { renderToString } from "preact-render-to-string";
+import { renderToString } from "react-dom/server";
 import { PostPage } from "@/src/components/PostPage.tsx";
 import { getPosts } from "@/src/models/posts.ts";
 import { fetchConfig } from "@/src/models/fetchConfig.ts";
 import { configId } from "@/src/models/configId.ts";
 
 export const layout = "layout.tsx";
+export const openGraphLayout = "og_images.tsx";
 
 async function* PostPages() {
   const config = await fetchConfig(configId);
