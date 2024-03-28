@@ -15,6 +15,9 @@ async function* PostPages() {
       title: `${post.title} | ${config.title}`,
       url: `/${post.slug}.html`,
       content: renderToString(PostPage(post)),
+      metas: {
+        title: `${post.title} | ${config.title}`,
+      },
     };
   });
 
