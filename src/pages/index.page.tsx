@@ -9,6 +9,9 @@ export const title = config.title;
 export const url = "/";
 export const layout = "layout.tsx";
 export const openGraphLayout = "og_images.tsx";
+export const metas = {
+  title: config.title,
+};
 
 const BlogIndexPage = async () => {
   const posts = await getPosts(config.contents);
