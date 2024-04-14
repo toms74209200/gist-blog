@@ -1,6 +1,6 @@
 {
     "deno.enable": true,
-    "deno.path": "/deno/bin/deno",
+    "deno.path": "/usr/local/bin/deno",
     "[typescript][typescriptreact]": {
         "editor.formatOnSave": true,
         "editor.tabSize": 2,
