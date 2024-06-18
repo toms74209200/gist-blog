@@ -1,0 +1,36 @@
+name: Test of medium size
+
+on:
+  workflow_call:
+    secrets:
+      CONFIG_ID:
+        required: true
+      PAT:
+        required: true
+
+jobs:
+  test-meduim:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Launch server
+        run: deno task serve &
+        env:
+          CONFIG_ID: ${{ secrets.CONFIG_ID }}
+          PAT: ${{ secrets.PAT }}
+      - name: Install dependencies
+        working-directory: visual_test
+        run: npm install
+      - name: Install playwright
+        working-directory: visual_test
+        run: npx playwright install --with-deps
+      - name: Run test
+        working-directory: visual_test
+        run: npx playwright test
