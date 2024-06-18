@@ -17,9 +17,16 @@ permissions:
   id-token: write
 
 jobs:
+  test-medium:
+    uses: ./.github/workflows/test-medium.yml
+    secrets:
+      CONFIG_ID: ${{ secrets.CONFIG_ID }}
+      PAT: ${{ secrets.PAT }}
   build:
     runs-on: ubuntu-latest
     environment: github-pages
+    needs:
+      - test-medium
 
     steps:
       - name: Clone repository
