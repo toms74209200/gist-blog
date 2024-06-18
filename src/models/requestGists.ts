@@ -3,7 +3,11 @@ export const requestGists = async (contents: string[]) => {
     return [];
   }
   const promises = contents.map(async (gistId) => {
-    const response = await fetch(`https://api.github.com/gists/${gistId}`);
+    const response = await fetch(`https://api.github.com/gists/${gistId}`, {
+      headers: {
+        Authorization: `Bearer ${Deno.env.get("PAT")}`,
+      },
+    });
     return response.json();
   });
 
