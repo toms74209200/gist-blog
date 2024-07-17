@@ -2,6 +2,11 @@ name: Test of medium size
 
 on:
   workflow_call:
+    inputs:
+      ref:
+        type: string
+        required: false
+        default: master
     secrets:
       CONFIG_ID:
         required: true
@@ -14,6 +19,8 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.ref }}
       - uses: denoland/setup-deno@v1
         with:
           deno-version: v1.x
