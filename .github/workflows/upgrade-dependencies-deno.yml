@@ -82,7 +82,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Enable auto-merge
         if: steps.check.outputs.pr_exists
-        run: gh pr merge --auto --merge jobs.update.outputs.pull-request-url
+        run: gh pr merge --auto --merge needs.update.outputs.pull-request-url
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Delete branch
