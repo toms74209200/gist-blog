@@ -56,7 +56,7 @@ jobs:
       - update
     uses: ./.github/workflows/test-medium.yml
     with:
-      ref: ${{ github.env.PR_BRANCH }}
+      ref: deno-dependency-updates
     secrets:
       CONFIG_ID: ${{ secrets.CONFIG_ID }}
       PAT: ${{ secrets.PAT }}
