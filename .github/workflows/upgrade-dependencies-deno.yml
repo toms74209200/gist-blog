@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       pull-request-url: ${{ steps.cpr.outputs.pull-request-url }}
+      pr-exists: ${{ steps.check.outputs.pr_exists }}
     steps:
       - uses: actions/checkout@v4
       - uses: denoland/setup-deno@v1
@@ -51,23 +52,6 @@ jobs:
           delete-branch: true
       - name: Set Pull Request URL
         run: echo "pull-request-url=${{ steps.cpr.outputs.pull-request-url }}" >> $GITHUB_ENV
-  test-medium:
-    needs:
-      - update
-    uses: ./.github/workflows/test-medium.yml
-    with:
-      ref: deno-dependency-updates
-    secrets:
-      CONFIG_ID: ${{ secrets.CONFIG_ID }}
-      PAT: ${{ secrets.PAT }}
-  auto-merge:
-    runs-on: ubuntu-latest
-    needs:
-      - update
-      - test-medium
-    steps:
-      - uses: actions/checkout@v4
-    
       - name: Check if PR exists
         id: check
         run: |
@@ -81,13 +65,29 @@ jobs:
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  test-medium:
+    needs:
+      - update
+    if: ${{ needs.update.outputs.pr-exists }}
+    uses: ./.github/workflows/test-medium.yml
+    with:
+      ref: deno-dependency-updates
+    secrets:
+      CONFIG_ID: ${{ secrets.CONFIG_ID }}
+      PAT: ${{ secrets.PAT }}
+  auto-merge:
+    runs-on: ubuntu-latest
+    needs:
+      - update
+      - test-medium
+    if: ${{ needs.update.outputs.pr-exists }}
+    steps:
+      - uses: actions/checkout@v4
       - name: Enable auto-merge
-        if: steps.check.outputs.pr_exists
         run: gh pr merge --auto --merge ${{needs.update.outputs.pull-request-url}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Delete branch
-        if: steps.check.outputs.pr_exists
         run: git push origin ${{ env.PR_BRANCH }} -d
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
