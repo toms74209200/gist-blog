@@ -83,7 +83,14 @@ jobs:
     if: ${{ needs.update.outputs.pr-exists }}
     steps:
       - uses: actions/checkout@v4
-      - name: Enable auto-merge
+      - if: ${{ needs.test-medium.outputs.status != 0 }}
+        name: Deny Pull Request
+        run:
+          gh pr close ${{needs.update.outputs.pull-request-url}}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - if: ${{ needs.test-medium.outputs.status == 0 }}
+        name: Enable auto-merge
         run: gh pr merge --auto --merge ${{needs.update.outputs.pull-request-url}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -29,6 +29,9 @@ jobs:
       - test-medium
 
     steps:
+      - if: ${{ needs.test-medium.outputs.status != 0 }}
+        name: Check if test passed
+        run: exit 1
       - name: Clone repository
         uses: actions/checkout@v4
 
