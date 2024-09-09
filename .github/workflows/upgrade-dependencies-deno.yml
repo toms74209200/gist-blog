@@ -33,7 +33,7 @@ jobs:
             deno run --allow-all https://deno.land/x/udd/main.ts deno.json $(find . -maxdepth 0 -type f | grep -E ".*\.([mc]?(ts|js)|(ts|js)x?)$" -) || true
             echo EOF
           } >> $GITHUB_OUTPUT
-      - uses: peter-evans/create-pull-request@v6
+      - uses: peter-evans/create-pull-request@v7
         id: cpr
         with:
           commit-message: ":arrow_up: Update deno dependencies"
