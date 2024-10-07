@@ -1,5 +1,4 @@
-import { assertEquals } from "https://deno.land/std/assert/assert_equals.ts";
-import { assert } from "https://deno.land/std/assert/assert.ts";
+import { assert, assertEquals } from "@std/assert";
 import { requestGists } from "@/src/models/requestGists.ts";
 
 Deno.test("requestGists should return an array of gists", async () => {

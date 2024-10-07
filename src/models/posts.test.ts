@@ -1,5 +1,4 @@
-import { assertEquals } from "https://deno.land/std/assert/assert_equals.ts";
-import { assert } from "https://deno.land/std/assert/assert.ts";
+import { assert, assertEquals } from "@std/assert";
 import { getPost, getPosts, gistToPost } from "@/src/models/posts.ts";
 
 Deno.test("getPosts should return posts", async () => {
