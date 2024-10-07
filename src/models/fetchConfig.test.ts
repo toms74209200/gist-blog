@@ -1,4 +1,4 @@
-import { assert } from "https://deno.land/std/assert/assert.ts";
+import { assert } from "@std/assert";
 import { fetchConfig } from "@/src/models/fetchConfig.ts";
 
 Deno.test("fetchConfig should return a BlogConfig", async () => {

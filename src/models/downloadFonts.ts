@@ -1,5 +1,5 @@
 import { decompress } from "zip";
-import { readAll } from "$std/io/read_all.ts";
+import { readAll } from "@std/io";
 import { download } from "download";
 
 export const downloadFont = async (
