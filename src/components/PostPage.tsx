@@ -1,5 +1,5 @@
 import { Post } from "@/src/models/posts.ts";
-import { CSS, render } from "gfm";
+import { CSS, render } from "@deno/gfm";
 
 export const PostPage = (post: Post) => {
   return (
