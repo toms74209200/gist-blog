@@ -18,7 +18,7 @@
     "@std/io": "jsr:@std/io@^0.224.9",
     "csstype": "https://esm.sh/v128/csstype@3.1.2",
     "download": "https://deno.land/x/download@v2.0.2/mod.ts",
-    "lume/": "https://deno.land/x/lume@v2.3.0/",
+    "lume/": "https://deno.land/x/lume@v2.3.3/",
     "react": "https://esm.sh/react@18.3.1/",
     "react-dom": "https://esm.sh/react-dom@18.3.1/",
     "react-dom/": "https://esm.sh/react-dom@18.3.1//",
