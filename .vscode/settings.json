@@ -2,6 +2,11 @@
     "[typescript][typescriptreact]": {
         "editor.formatOnSave": true,
         "editor.tabSize": 2,
-        "editor.defaultFormatter": "oven.bun-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[astro]": {
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "astro-build.astro-vscode"
     }
 }

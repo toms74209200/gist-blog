@@ -19,7 +19,8 @@
 			"extensions": [
 				"oven.bun-vscode",
 				"bradlc.vscode-tailwindcss",
-				"esbenp.prettier-vscode"
+				"esbenp.prettier-vscode",
+				"astro-build.astro-vscode"
 			]
 		}
 	},
