@@ -1,5 +1,4 @@
-import { Post } from "@/src/models/posts.ts";
-import { CSS, render } from "@deno/gfm";
+import type { Post } from "../models/posts.ts";
 
 export const PostPage = (post: Post) => {
   return (
@@ -13,7 +12,7 @@ export const PostPage = (post: Post) => {
       </time>
       <div
         className="mt-8 markdown-body"
-        dangerouslySetInnerHTML={{ __html: render(post.content) }}
+        dangerouslySetInnerHTML={{ __html: post.content }}
       />
     </>
   );

@@ -1,4 +1,4 @@
-import { requestGists } from "@/src/models/requestGists.ts";
+import { requestGists } from "./requestGists.ts";
 
 export interface Post {
   slug: string;
@@ -27,6 +27,12 @@ export const gistToPost = (gist: any): Post => {
   const publishedAt = new Date(gist.created_at);
   const snippet = lines[1].trim();
   const slug = gist.id;
+  const render = () => {
+    const Content = async () => {
+      return content;
+    };
+    return { Content };
+  };
 
   return {
     slug,
