@@ -1,3 +1,4 @@
+import { PostPage } from "../components/PostPage.tsx";
 import { requestGists } from "./requestGists.ts";
 
 export interface Post {
@@ -18,7 +19,7 @@ export const getPost = async (slug: string): Promise<Post> => {
   return gistToPost(gist[0]);
 };
 
-export const gistToPost = (gist: any): Post => {
+export const gistToPost = (gist: any) => {
   const filename = Object.keys(gist.files)[0];
   const file = gist.files[filename];
   const content = file.content;
@@ -28,8 +29,8 @@ export const gistToPost = (gist: any): Post => {
   const snippet = lines[1].trim();
   const slug = gist.id;
   const render = () => {
-    const Content = async () => {
-      return content;
+    const Content = () => {
+      return PostPage({ slug, title, publishedAt, snippet, content });
     };
     return { Content };
   };
@@ -40,5 +41,6 @@ export const gistToPost = (gist: any): Post => {
     publishedAt,
     snippet,
     content,
+    render,
   };
 };
