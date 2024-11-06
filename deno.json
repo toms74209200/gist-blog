@@ -19,10 +19,10 @@
     "csstype": "https://esm.sh/v128/csstype@3.1.2",
     "download": "https://deno.land/x/download@v2.0.2/mod.ts",
     "lume/": "https://deno.land/x/lume@v2.3.3/",
-    "react": "https://esm.sh/react@18.3.1/",
-    "react-dom": "https://esm.sh/react-dom@18.3.1/",
-    "react-dom/": "https://esm.sh/react-dom@18.3.1//",
-    "react/": "https://esm.sh/react@18.3.1//",
+    "react": "https://esm.sh/react@19.0.0-rc-fb9a90fa48-20240614/",
+    "react-dom": "https://esm.sh/react-dom@undefined/",
+    "react-dom/": "https://esm.sh/react-dom@undefined//",
+    "react/": "https://esm.sh/react@19.0.0-rc-fb9a90fa48-20240614//",
     "zip": "https://deno.land/x/zip@v1.2.5/mod.ts"
   }
 }
