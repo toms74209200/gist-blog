@@ -1,9 +1,9 @@
 ---
-import { fetchConfig } from "../../models/fetchConfig";
-import { configId } from "../../models/configId";
-import { getPosts } from "../../models/posts";
+import { fetchConfig } from "../models/fetchConfig";
+import { configId } from "../models/configId";
+import { getPosts } from "../models/posts";
 import { type CollectionEntry } from "astro:content";
-import BlogPost from "../../layouts/BlogPost.astro";
+import BlogPost from "../layouts/BlogPost.astro";
 
 export async function getStaticPaths() {
   const config = await fetchConfig(configId);
