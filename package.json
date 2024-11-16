@@ -1,29 +1,38 @@
 {
-  "name": "tender-tower",
-  "type": "module",
-  "version": "0.0.1",
+  "name": "gist-blog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "gist-blog",
+  "author": "toms74209200",
+  "keywords": [
+    "gatsby"
+  ],
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "develop": "gatsby develop -H 0.0.0.0 -p 8000",
+    "start": "gatsby develop -H 0.0.0.0 -p 8000",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^3.1.9",
-    "@astrojs/react": "^3.6.2",
-    "@astrojs/rss": "^4.0.9",
-    "@astrojs/sitemap": "^3.2.1",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "astro": "^4.16.8",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-markdown": "^9.0.1",
-    "rehype-raw": "^7.0.0",
-    "remark-gemoji": "^8.0.0",
-    "remark-gfm": "^4.0.0",
-    "typescript": "^5.6.3"
+    "autoprefixer": "^10.4.20",
+    "gatsby": "^5.14.0",
+    "gatsby-plugin-image": "^3.14.0",
+    "gatsby-plugin-postcss": "^6.14.0",
+    "gatsby-plugin-sharp": "^5.14.0",
+    "gatsby-source-filesystem": "^5.14.0",
+    "gatsby-transformer-remark": "^6.14.0",
+    "gatsby-transformer-sharp": "^5.14.0",
+    "postcss": "^8.4.49",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.4.14"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.19",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "typescript": "^5.3.3"
   }
 }
