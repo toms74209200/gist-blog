@@ -3,10 +3,5 @@
         "editor.formatOnSave": true,
         "editor.tabSize": 2,
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[astro]": {
-        "editor.formatOnSave": true,
-        "editor.tabSize": 2,
-        "editor.defaultFormatter": "astro-build.astro-vscode"
     }
 }
