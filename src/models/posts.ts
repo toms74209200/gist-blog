@@ -1,5 +1,4 @@
-import { PostPage } from "../components/PostPage.tsx";
-import { requestGists } from "./requestGists.ts";
+import { requestGists } from "./requestGists";
 
 export interface Post {
   slug: string;
@@ -28,12 +27,6 @@ export const gistToPost = (gist: any) => {
   const publishedAt = new Date(gist.created_at);
   const snippet = lines[1].trim();
   const slug = gist.id;
-  const render = () => {
-    const Content = () => {
-      return PostPage({ slug, title, publishedAt, snippet, content });
-    };
-    return { Content };
-  };
 
   return {
     slug,
@@ -41,6 +34,5 @@ export const gistToPost = (gist: any) => {
     publishedAt,
     snippet,
     content,
-    render,
   };
 };

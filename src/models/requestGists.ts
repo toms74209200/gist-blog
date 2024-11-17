@@ -5,7 +5,7 @@ export const requestGists = async (contents: string[]) => {
   const promises = contents.map(async (gistId) => {
     const response = await fetch(`https://api.github.com/gists/${gistId}`, {
       headers: {
-        Authorization: `Bearer ${import.meta.env.PAT}`,
+        Authorization: `Bearer ${process.env.PAT}`,
       },
     });
     return response.json();

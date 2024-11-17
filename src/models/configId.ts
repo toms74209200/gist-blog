@@ -1,1 +1,1 @@
-export const configId = import.meta.env.CONFIG_ID || "";
+export const configId = process.env.CONFIG_ID || "";
