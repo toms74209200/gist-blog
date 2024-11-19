@@ -23,4 +23,13 @@ export const createPages: GatsbyNode["createPages"] = async ({ actions }) => {
       },
     });
   });
+
+  createPage({
+    path: "/",
+    component: path.resolve("./src/components/IndexPage.tsx"), // `gatsby-node.ts` からの相対パス
+    context: {
+      posts,
+      config,
+    },
+  });
 };
