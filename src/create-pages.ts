@@ -15,6 +15,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ actions }) => {
       path: `/${post.slug}`,
       component: path.resolve("./src/components/PostPage.tsx"), // `gatsby-node.ts` からの相対パス
       context: {
+        siteTitle: config.title,
         slug: post.slug,
         title: post.title,
         publishedAt: post.publishedAt,
