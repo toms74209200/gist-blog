@@ -1,5 +1,6 @@
 import { Node } from "gatsby";
 import { Properties } from "csstype";
+import React from "react";
 
 type PageContext = {
   siteTitle: string;
@@ -7,13 +8,8 @@ type PageContext = {
 };
 
 export default function (node: Node) {
-  if (node.id !== "SitePage") {
-    return null;
-  }
-  const title = (node.siteMetadata as PageContext).title;
-  const [pageTitle, blogTitle] = title.includes("|")
-    ? title.split("|")
-    : [null, title];
+  const pageTitle = (node.context as PageContext)?.title ?? "";
+  const blogTitle = (node.context as PageContext)?.siteTitle ?? "";
   const blogTitleStyle: Properties = pageTitle
     ? {
         position: "absolute",
@@ -27,23 +23,6 @@ export default function (node: Node) {
         fontSize: "3.75rem",
         lineHeight: 1.5,
       };
-  return (
-    <div
-      style={{
-        height: "100%",
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#fff",
-        fontSize: 32,
-        fontWeight: 600,
-      }}
-    >
-      test
-    </div>
-  );
   return (
     <div
       style={{

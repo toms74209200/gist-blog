@@ -1,5 +1,4 @@
 import fs from "node:fs";
-import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import type { GatsbyCache, GatsbyNode, Node } from "gatsby";
@@ -7,6 +6,7 @@ import { createFileNodeFromBuffer } from "gatsby-source-filesystem";
 import satori, { type Font } from "satori";
 import sharp from "sharp";
 import typescript from "typescript";
+import React from "react";
 
 export { createPages } from "./src/create-pages";
 
@@ -32,8 +32,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const defaultOption: Option = {
   path: `./src/components/OgImage.tsx`,
-  width: 1200,
-  height: 630,
+  width: 600,
+  height: 400,
   fonts: [
     {
       name: "BIZUDPGothic-Regular",
@@ -78,7 +78,7 @@ const createSitePageOgImageReactElement = async (
     },
   }).outputText;
   const tmpFilename = path.join(
-    os.tmpdir(),
+    "/workspaces/gist-blog/",
     `tmp-gatsby-plugin-satorare-SitePage.js`
   );
   fs.writeFileSync(tmpFilename, transpiled);
@@ -109,7 +109,6 @@ const getOgImage = async (
 export const createSchemaCustomization = ({ actions }, userOption) => {
   const option: Option = {
     ...defaultOption,
-    // ...userOption,
   };
 
   for (const targetNode of option.target_nodes) {

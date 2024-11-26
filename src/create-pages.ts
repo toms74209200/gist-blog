@@ -29,6 +29,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ actions }) => {
     path: "/",
     component: path.resolve("./src/components/IndexPage.tsx"), // `gatsby-node.ts` からの相対パス
     context: {
+      siteTitle: config.title,
       posts,
       config,
     },
