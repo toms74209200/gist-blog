@@ -1,4 +1,4 @@
-import { HeadFC, PageProps } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import type { BlogConfig } from "../models/fetchConfig";
 import type { Post } from "../models/posts";
 import { PostCard } from "./PostCard";
@@ -6,12 +6,24 @@ import Layout from "./layout";
 import { Helmet } from "react-helmet-async";
 
 const IndexPage = ({
+  data,
   pageContext,
-}: PageProps<{}, { posts: Post[]; config: BlogConfig }>) => {
+}: PageProps<GatsbyTypes.Query, { posts: Post[]; config: BlogConfig }>) => {
   return (
     <Layout>
       <Helmet>
         <title>{pageContext.config.title}</title>
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={pageContext.config.title} />
+        <meta
+          property="og:url"
+          content={`${data.site?.siteMetadata?.siteUrl}`}
+        />
+        <meta
+          property="og:image"
+          content={`${data.sitePageOgImage?.attributes?.publicURL}`}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       <main className={"pt-16"}>
         <h1 className="text-5xl font-bold">{pageContext.config.title}</h1>
@@ -26,4 +38,18 @@ const IndexPage = ({
 };
 
 export default IndexPage;
-export const Head: HeadFC = () => <title>Not found</title>;
+
+export const query = graphql`
+  query OgImage {
+    sitePageOgImage {
+      attributes {
+        publicURL
+      }
+    }
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
+  }
+`;

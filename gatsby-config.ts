@@ -1,10 +1,12 @@
 import type { GatsbyConfig } from "gatsby";
 
+const domain = process.env.LOCATION || "";
+
 const config: GatsbyConfig = {
   jsxRuntime: "automatic",
   siteMetadata: {
     title: `gist-blog`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: domain,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin

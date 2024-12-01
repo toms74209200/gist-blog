@@ -2,18 +2,33 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import remarkGemoji from "remark-gemoji";
-import { PageProps } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import type { Post } from "../models/posts";
 import Layout from "./layout";
 import { Helmet } from "react-helmet-async";
 
 const PostPage = ({
+  data,
   pageContext,
-}: PageProps<{}, Post & { siteTitle: string }>) => {
+}: PageProps<GatsbyTypes.Query, Post & { siteTitle: string }>) => {
   return (
     <Layout>
       <Helmet>
         <title>{`${pageContext.title} | ${pageContext.siteTitle}`}</title>
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content={`${pageContext.title} | ${pageContext.siteTitle}`}
+        />
+        <meta
+          property="og:url"
+          content={`${data.site?.siteMetadata?.siteUrl}/${pageContext.slug}`}
+        />
+        <meta
+          property="og:image"
+          content={`${data.sitePageOgImage?.attributes?.publicURL}`}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       <h1 className="text-5xl font-bold">{pageContext.title}</h1>
       <time className="text-gray-500">
@@ -31,3 +46,18 @@ const PostPage = ({
 };
 
 export default PostPage;
+
+export const query = graphql`
+  query OgImage {
+    sitePageOgImage {
+      attributes {
+        publicURL
+      }
+    }
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
+  }
+`;
