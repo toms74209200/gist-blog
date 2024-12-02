@@ -8,6 +8,9 @@
     "gatsby"
   ],
   "scripts": {
+    "test": "vitest run --silent",
+    "test:small": "vitest run --silent --config vite.small.config.ts",
+    "test:medium": "vitest run --silent --config vite.medium.config.ts",
     "develop": "gatsby develop -H 0.0.0.0 -p 8000",
     "start": "gatsby develop -H 0.0.0.0 -p 8000",
     "build": "gatsby build",
@@ -42,6 +45,7 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.2.19",
     "gatsby-plugin-typegen": "^3.1.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^2.1.7"
   }
 }

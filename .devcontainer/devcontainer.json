@@ -20,6 +20,7 @@
 				"oven.bun-vscode",
 				"bradlc.vscode-tailwindcss",
 				"esbenp.prettier-vscode",
+				"vitest.explorer"
 			]
 		}
 	},
