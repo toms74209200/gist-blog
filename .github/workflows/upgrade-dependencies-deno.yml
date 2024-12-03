@@ -65,11 +65,11 @@ jobs:
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  test-medium:
+  test-large:
     needs:
       - update
     if: ${{ needs.update.outputs.pr-exists }}
-    uses: ./.github/workflows/test-medium.yml
+    uses: ./.github/workflows/test-large.yml
     with:
       ref: deno-dependency-updates
     secrets:
@@ -79,17 +79,17 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - update
-      - test-medium
+      - test-large
     if: ${{ needs.update.outputs.pr-exists }}
     steps:
       - uses: actions/checkout@v4
-      - if: ${{ needs.test-medium.outputs.status != 0 }}
+      - if: ${{ needs.test-large.outputs.status != 0 }}
         name: Deny Pull Request
         run:
           gh pr close ${{needs.update.outputs.pull-request-url}}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - if: ${{ needs.test-medium.outputs.status == 0 }}
+      - if: ${{ needs.test-large.outputs.status == 0 }}
         name: Enable auto-merge
         run: gh pr merge --auto --merge ${{needs.update.outputs.pull-request-url}}
         env:
