@@ -5,6 +5,8 @@ import { PostCard } from "./PostCard";
 import Layout from "./layout";
 import { Helmet } from "react-helmet-async";
 
+const pathPrefix = process.env.PATH_PREFIX || "";
+
 const IndexPage = ({
   data,
   pageContext,
@@ -17,7 +19,7 @@ const IndexPage = ({
         <meta property="og:title" content={pageContext.config.title} />
         <meta
           property="og:url"
-          content={`${data.site?.siteMetadata?.siteUrl}`}
+          content={`${data.site?.siteMetadata?.siteUrl}${pathPrefix}`}
         />
         <meta
           property="og:image"
