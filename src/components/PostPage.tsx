@@ -26,7 +26,7 @@ const PostPage = ({
         />
         <meta
           property="og:image"
-          content={`${data.sitePageOgImage?.attributes?.publicURL}`}
+          content={`${data.site?.siteMetadata?.siteUrl}${data.sitePageOgImage?.attributes?.publicURL}`}
         />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
