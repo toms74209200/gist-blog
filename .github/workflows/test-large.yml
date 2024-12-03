@@ -5,6 +5,8 @@ on:
     secrets:
       CONFIG_ID:
         required: true
+      LOCATION:
+        required: true
       PAT:
         required: true
     outputs:
@@ -33,6 +35,7 @@ jobs:
         run: bun run develop &
         env:
           CONFIG_ID: ${{ secrets.CONFIG_ID }}
+          LOCATION: ${{ secrets.LOCATION }}
           PAT: ${{ secrets.PAT }}
       - name: Install dependencies
         working-directory: visual_test
