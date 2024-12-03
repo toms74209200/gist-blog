@@ -21,6 +21,7 @@ jobs:
     uses: ./.github/workflows/test-large.yml
     secrets:
       CONFIG_ID: ${{ secrets.CONFIG_ID }}
+      LOCATION: ${{ secrets.LOCATION }}
       PAT: ${{ secrets.PAT }}
   build:
     runs-on: ubuntu-latest
