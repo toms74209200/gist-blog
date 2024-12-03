@@ -2,11 +2,6 @@ name: Test of large size
 
 on:
   workflow_call:
-    inputs:
-      ref:
-        type: string
-        required: false
-        default: master
     secrets:
       CONFIG_ID:
         required: true
@@ -24,8 +19,6 @@ jobs:
       status: ${{ steps.test.outputs.status }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.ref }}
       - uses: actions/setup-node@v4
         with:
           node-version: 20

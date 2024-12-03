@@ -1,0 +1,28 @@
+name: Test of medium size
+
+on:
+  workflow_call:
+    secrets:
+      CONFIG_ID:
+        required: true
+      PAT:
+        required: true
+    outputs:
+      status:
+        value: ${{ jobs.test-medium.outputs.status }}
+
+jobs:
+  test-medium:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      status: ${{ steps.test.outputs.status }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - name: Run test
+        id: test
+        run: bun run test-medium || echo "status=$?" >> $GITHUB_OUTPUT
+        env:
+          CONFIG_ID: ${{ secrets.CONFIG_ID }}
+          PAT: ${{ secrets.PAT }}
