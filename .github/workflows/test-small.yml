@@ -1,4 +1,4 @@
-name: Test of medium size
+name: Test of small size
 
 on:
   workflow_call:
@@ -9,10 +9,10 @@ on:
         required: true
     outputs:
       status:
-        value: ${{ jobs.test-medium.outputs.status }}
+        value: ${{ jobs.test-small.outputs.status }}
 
 jobs:
-  test-medium:
+  test-small:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
@@ -22,7 +22,7 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - name: Run test
         id: test
-        run: bun run test-medium || echo "status=$?" >> $GITHUB_OUTPUT
+        run: bun run test-small || echo "status=$?" >> $GITHUB_OUTPUT
         env:
           CONFIG_ID: ${{ secrets.CONFIG_ID }}
           PAT: ${{ secrets.PAT }}

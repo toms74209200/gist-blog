@@ -1,4 +1,4 @@
-import { requestGists } from "@/src/models/requestGists.ts";
+import { requestGists } from "./requestGists";
 
 export interface Post {
   slug: string;
@@ -18,7 +18,7 @@ export const getPost = async (slug: string): Promise<Post> => {
   return gistToPost(gist[0]);
 };
 
-export const gistToPost = (gist: any): Post => {
+export const gistToPost = (gist: any) => {
   const filename = Object.keys(gist.files)[0];
   const file = gist.files[filename];
   const content = file.content;

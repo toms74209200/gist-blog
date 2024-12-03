@@ -5,6 +5,10 @@
 .env.production.local
 .env.local
 
-# Lume site build
-_site/
-_cache/
+node_modules/
+.cache/
+public
+src/gatsby-types.d.ts
+
+*.ttf
+tmp-*

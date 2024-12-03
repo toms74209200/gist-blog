@@ -1,9 +1,7 @@
 {
-    "deno.enable": true,
-    "deno.path": "/usr/local/bin/deno",
     "[typescript][typescriptreact]": {
         "editor.formatOnSave": true,
         "editor.tabSize": 2,
-        "editor.defaultFormatter": "denoland.vscode-deno"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }

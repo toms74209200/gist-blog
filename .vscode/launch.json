@@ -7,14 +7,10 @@
         {
             "request": "launch",
             "name": "Launch Program",
-            "type": "node",
+            "type": "node-terminal",
             "cwd": "${workspaceFolder}",
-            "runtimeExecutable": "bash",
-            "runtimeArgs": [
-                "-c",
-                "echo \"import 'lume/cli.ts'\" | deno run --inspect-wait --unstable -A - -s",
-            ],
-            "attachSimplePort": 9229
+            "command": "bun run develop",
+            "envFile": "${workspaceFolder}/.env",
         }
     ]
 }

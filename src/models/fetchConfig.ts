@@ -1,4 +1,4 @@
-import { requestGists } from "@/src/models/requestGists.ts";
+import { requestGists } from "./requestGists";
 
 export interface BlogConfig {
   title: string;

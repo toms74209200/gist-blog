@@ -3,11 +3,8 @@
 {
 	"name": "Node",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:1-20",
-	"features": {
-		"ghcr.io/devcontainers-community/features/deno:1": {
-			"version": "latest"
-		}
+	"build": {
+		"dockerfile": "Dockerfile"
 	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
@@ -20,8 +17,10 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"denoland.vscode-deno",
-				"bradlc.vscode-tailwindcss"
+				"oven.bun-vscode",
+				"bradlc.vscode-tailwindcss",
+				"esbenp.prettier-vscode",
+				"vitest.explorer"
 			]
 		}
 	},

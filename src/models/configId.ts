@@ -1,1 +1,1 @@
-export const configId = Deno.env.get("CONFIG_ID") || "";
+export const configId = process.env.CONFIG_ID || "";
