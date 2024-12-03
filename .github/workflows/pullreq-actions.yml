@@ -1,4 +1,4 @@
-name: Pull Request(Dependabot)
+name: Pull Request(GitHub Actions)
 
 on:
   pull_request:
