@@ -9,6 +9,7 @@ on:
 env:
   CONFIG_ID: ${{ secrets.CONFIG_ID }}
   LOCATION: ${{ secrets.LOCATION }}
+  PATH_PERFIX: ${{ secrets.PATH_PERFIX }}
   PAT: ${{ secrets.PAT }}
 
 permissions:
