@@ -7,6 +7,8 @@ import type { Post } from "../models/posts";
 import Layout from "./layout";
 import { Helmet } from "react-helmet-async";
 
+const pathPrefix = process.env.PATH_PREFIX || "";
+
 const PostPage = ({
   data,
   pageContext,
@@ -22,7 +24,7 @@ const PostPage = ({
         />
         <meta
           property="og:url"
-          content={`${data.site?.siteMetadata?.siteUrl}/${pageContext.slug}`}
+          content={`${data.site?.siteMetadata?.siteUrl}${pathPrefix}/${pageContext.slug}`}
         />
         <meta
           property="og:image"
