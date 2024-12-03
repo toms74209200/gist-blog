@@ -78,7 +78,7 @@ const createSitePageOgImageReactElement = async (
     },
   }).outputText;
   const tmpFilename = path.join(
-    "/workspaces/gist-blog/",
+    process.cwd(),
     `tmp-gatsby-plugin-satorare-SitePage.js`
   );
   fs.writeFileSync(tmpFilename, transpiled);
