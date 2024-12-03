@@ -1,6 +1,6 @@
 import type { GatsbyConfig } from "gatsby";
 
-const domain = process.env.LOCATION || "";
+const domain = process.env.LOCATION || "http://localhost:8000";
 
 const config: GatsbyConfig = {
   jsxRuntime: "automatic",
