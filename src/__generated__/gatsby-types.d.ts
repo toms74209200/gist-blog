@@ -2950,24 +2950,28 @@ type SitePluginSortInput = {
 
 type SiteSiteMetadata = {
   readonly description: Maybe<Scalars['String']>;
+  readonly pathPrefix: Maybe<Scalars['String']>;
   readonly siteUrl: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
 };
 
 type SiteSiteMetadataFieldSelector = {
   readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly pathPrefix: InputMaybe<FieldSelectorEnum>;
   readonly siteUrl: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
 };
 
 type SiteSiteMetadataFilterInput = {
   readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly pathPrefix: InputMaybe<StringQueryOperatorInput>;
   readonly siteUrl: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
 };
 
 type SiteSiteMetadataSortInput = {
   readonly description: InputMaybe<SortOrderEnum>;
+  readonly pathPrefix: InputMaybe<SortOrderEnum>;
   readonly siteUrl: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
 };
@@ -3017,7 +3021,7 @@ type WebPOptions = {
 type OgImageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type OgImageQuery = { readonly sitePageOgImage: { readonly attributes: { readonly publicURL: string | null } | null } | null, readonly site: { readonly siteMetadata: { readonly siteUrl: string | null } | null } | null };
+type OgImageQuery = { readonly sitePageOgImage: { readonly attributes: { readonly publicURL: string | null } | null } | null, readonly site: { readonly siteMetadata: { readonly siteUrl: string | null, readonly pathPrefix: string | null } | null } | null };
 
 
 }

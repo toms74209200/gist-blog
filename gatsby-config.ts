@@ -8,6 +8,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: `gist-blog`,
     siteUrl: domain,
+    pathPrefix: pathPrefix,
   },
   pathPrefix: pathPrefix,
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.

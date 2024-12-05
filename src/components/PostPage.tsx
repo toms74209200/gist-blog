@@ -7,8 +7,6 @@ import type { Post } from "../models/posts";
 import Layout from "./layout";
 import { Helmet } from "react-helmet-async";
 
-const pathPrefix = process.env.PATH_PREFIX || "";
-
 const PostPage = ({
   data,
   pageContext,
@@ -16,6 +14,7 @@ const PostPage = ({
   return (
     <Layout>
       <Helmet>
+        <html lang="ja" />
         <title>{`${pageContext.title} | ${pageContext.siteTitle}`}</title>
         <meta property="og:type" content="website" />
         <meta
@@ -24,11 +23,17 @@ const PostPage = ({
         />
         <meta
           property="og:url"
-          content={`${data.site?.siteMetadata?.siteUrl}${pathPrefix}/${pageContext.slug}`}
+          content={[
+            data.site?.siteMetadata?.siteUrl ?? "",
+            data.site?.siteMetadata?.pathPrefix ?? "",
+          ].join("")}
         />
         <meta
           property="og:image"
-          content={`${data.site?.siteMetadata?.siteUrl}${data.sitePageOgImage?.attributes?.publicURL}`}
+          content={[
+            data.site?.siteMetadata?.siteUrl ?? "",
+            data.sitePageOgImage?.attributes?.publicURL ?? "",
+          ].join("")}
         />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
@@ -59,6 +64,7 @@ export const query = graphql`
     site {
       siteMetadata {
         siteUrl
+        pathPrefix
       }
     }
   }
