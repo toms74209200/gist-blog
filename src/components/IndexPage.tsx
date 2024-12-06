@@ -59,5 +59,13 @@ export const query = graphql`
         pathPrefix
       }
     }
+    allSitePageOgImage {
+      nodes {
+        id
+        attributes {
+          publicURL
+        }
+      }
+    }
   }
 `;
