@@ -52,8 +52,7 @@ You can run tests and launch server from Activity Bar.
 ## Environments
 
 - Visual Studio Code(Dev Container)
-- [Deno](https://deno.com/)
-- [Lume](https://lume.land/)
+- [Gatsby](https://www.gatsbyjs.com/)
 
 ## License
 
