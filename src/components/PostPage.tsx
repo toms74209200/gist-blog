@@ -11,6 +11,12 @@ const PostPage = ({
   data,
   pageContext,
 }: PageProps<GatsbyTypes.Query, Post & { siteTitle: string }>) => {
+  const siteNodeId = data.allSitePage.nodes.find((node) =>
+    node.path.includes(pageContext.slug)
+  )?.id;
+  const sitePageOgImage = data.allSitePageOgImage.nodes.find(
+    (node) => node.parent?.id === siteNodeId
+  );
   return (
     <Layout>
       <Helmet>
@@ -32,7 +38,7 @@ const PostPage = ({
           property="og:image"
           content={[
             data.site?.siteMetadata?.siteUrl ?? "",
-            data.sitePageOgImage?.attributes?.publicURL ?? "",
+            sitePageOgImage?.attributes?.publicURL ?? "",
           ].join("")}
         />
         <meta name="twitter:card" content="summary_large_image" />
@@ -56,9 +62,20 @@ export default PostPage;
 
 export const query = graphql`
   query OgImage {
-    sitePageOgImage {
-      attributes {
-        publicURL
+    allSitePage {
+      nodes {
+        id
+        path
+      }
+    }
+    allSitePageOgImage {
+      nodes {
+        attributes {
+          publicURL
+        }
+        parent {
+          id
+        }
       }
     }
     site {

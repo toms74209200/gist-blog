@@ -389,6 +389,7 @@ type File = Node & {
   readonly ext: Scalars['String'];
   readonly extension: Scalars['String'];
   readonly gid: Scalars['Int'];
+  readonly hash: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly ino: Scalars['Float'];
   readonly internal: Internal;
@@ -534,6 +535,7 @@ type FileFieldSelector = {
   readonly ext: InputMaybe<FieldSelectorEnum>;
   readonly extension: InputMaybe<FieldSelectorEnum>;
   readonly gid: InputMaybe<FieldSelectorEnum>;
+  readonly hash: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly ino: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
@@ -577,6 +579,7 @@ type FileFilterInput = {
   readonly ext: InputMaybe<StringQueryOperatorInput>;
   readonly extension: InputMaybe<StringQueryOperatorInput>;
   readonly gid: InputMaybe<IntQueryOperatorInput>;
+  readonly hash: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly ino: InputMaybe<FloatQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
@@ -661,6 +664,7 @@ type FileSortInput = {
   readonly ext: InputMaybe<SortOrderEnum>;
   readonly extension: InputMaybe<SortOrderEnum>;
   readonly gid: InputMaybe<SortOrderEnum>;
+  readonly hash: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly ino: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
@@ -1842,6 +1846,7 @@ type Query_fileArgs = {
   ext: InputMaybe<StringQueryOperatorInput>;
   extension: InputMaybe<StringQueryOperatorInput>;
   gid: InputMaybe<IntQueryOperatorInput>;
+  hash: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   ino: InputMaybe<FloatQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
@@ -3021,7 +3026,7 @@ type WebPOptions = {
 type OgImageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type OgImageQuery = { readonly sitePageOgImage: { readonly attributes: { readonly publicURL: string | null } | null } | null, readonly site: { readonly siteMetadata: { readonly siteUrl: string | null, readonly pathPrefix: string | null } | null } | null };
+type OgImageQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly path: string }> }, readonly allSitePageOgImage: { readonly nodes: ReadonlyArray<{ readonly attributes: { readonly publicURL: string | null } | null, readonly parent: { readonly id: string } | { readonly id: string } | { readonly id: string } | { readonly id: string } | { readonly id: string } | { readonly id: string } | { readonly id: string } | { readonly id: string } | { readonly id: string } | { readonly id: string } | { readonly id: string } | { readonly id: string } | null }> }, readonly site: { readonly siteMetadata: { readonly siteUrl: string | null, readonly pathPrefix: string | null } | null } | null };
 
 
 }

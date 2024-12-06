@@ -9,6 +9,12 @@ const IndexPage = ({
   data,
   pageContext,
 }: PageProps<GatsbyTypes.Query, { posts: Post[]; config: BlogConfig }>) => {
+  const siteNodeId = data.allSitePage.nodes.find(
+    (node) => node.path === "/"
+  )?.id;
+  const sitePageOgImage = data.allSitePageOgImage.nodes.find(
+    (node) => node.parent?.id === siteNodeId
+  );
   return (
     <Layout>
       <Helmet>
@@ -27,7 +33,7 @@ const IndexPage = ({
           property="og:image"
           content={[
             data.site?.siteMetadata?.siteUrl ?? "",
-            data.sitePageOgImage?.attributes?.publicURL ?? "",
+            sitePageOgImage?.attributes?.publicURL ?? "",
           ].join("")}
         />
         <meta name="twitter:card" content="summary_large_image" />
@@ -48,23 +54,26 @@ export default IndexPage;
 
 export const query = graphql`
   query OgImage {
-    sitePageOgImage {
-      attributes {
-        publicURL
+    allSitePage {
+      nodes {
+        id
+        path
+      }
+    }
+    allSitePageOgImage {
+      nodes {
+        attributes {
+          publicURL
+        }
+        parent {
+          id
+        }
       }
     }
     site {
       siteMetadata {
         siteUrl
         pathPrefix
-      }
-    }
-    allSitePageOgImage {
-      nodes {
-        id
-        attributes {
-          publicURL
-        }
       }
     }
   }
