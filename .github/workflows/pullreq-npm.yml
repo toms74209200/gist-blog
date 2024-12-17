@@ -12,6 +12,12 @@ permissions:
   contents: write
 
 jobs:
+  test-smoke:
+    if : ${{ github.actor == 'dependabot[bot]' }}
+    uses: ./.github/workflows/test-smoke.yml
+    secrets:
+      CONFIG_ID: ${{ secrets.CONFIG_ID }}
+      PAT: ${{ secrets.PAT }}
   test-small:
     if: ${{ github.actor == 'dependabot[bot]' }}
     uses: ./.github/workflows/test-small.yml
@@ -25,7 +31,7 @@ jobs:
       CONFIG_ID: ${{ secrets.CONFIG_ID }}
       PAT: ${{ secrets.PAT }}
   auto-merge:
-    if: ${{ github.actor == 'dependabot[bot]' }} && ${{ needs.test-small.outputs.status != 0 }} && ${{ needs.test-medium.outputs.status != 0 }}
+    if: ${{ github.actor == 'dependabot[bot]' }}
     runs-on: ubuntu-latest
     needs:
       - test-small
@@ -37,7 +43,7 @@ jobs:
         with:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
       - name: Enable auto-merge for Dependabot PRs
-        if: ${{ steps.metadata.outputs.update-type }} == 'version-update:semver-patch' || ${{ steps.metadata.outputs.update-type }} == 'version-update:semver-minor'
+        if: ${{ steps.dependabot-metadata.outputs.update-type }} == 'version-update:semver-patch' || ${{ steps.dependabot-metadata.outputs.update-type }} == 'version-update:semver-minor'
         run: gh pr merge --auto --merge "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}

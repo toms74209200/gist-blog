@@ -9,9 +9,6 @@ on:
         required: true
       PAT:
         required: true
-    outputs:
-      status:
-        value: ${{ jobs.test-large.outputs.status }}
 
 jobs:
   test-large:
@@ -46,4 +43,4 @@ jobs:
       - name: Run test
         id: test
         working-directory: visual_test
-        run: npx playwright test || echo "status=$?" >> $GITHUB_OUTPUT
+        run: npx playwright test
