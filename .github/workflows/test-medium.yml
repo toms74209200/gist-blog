@@ -7,9 +7,6 @@ on:
         required: true
       PAT:
         required: true
-    outputs:
-      status:
-        value: ${{ jobs.test-medium.outputs.status }}
 
 jobs:
   test-medium:
@@ -24,7 +21,7 @@ jobs:
         run: bun install
       - name: Run test
         id: test
-        run: bun run test:medium || echo "status=$?" >> $GITHUB_OUTPUT
+        run: bun run test:medium
         env:
           CONFIG_ID: ${{ secrets.CONFIG_ID }}
           PAT: ${{ secrets.PAT }}

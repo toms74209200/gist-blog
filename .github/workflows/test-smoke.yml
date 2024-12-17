@@ -1,4 +1,4 @@
-name: Test of small size
+name: Test of smoke build
 
 on:
   workflow_call:
@@ -9,7 +9,7 @@ on:
         required: true
 
 jobs:
-  test-small:
+  test-smoke:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
@@ -21,7 +21,7 @@ jobs:
         run: bun install
       - name: Run test
         id: test
-        run: bun run test:small
+        run: bun run build || echo "status=$?" >> $GITHUB_OUTPUT
         env:
           CONFIG_ID: ${{ secrets.CONFIG_ID }}
           PAT: ${{ secrets.PAT }}
