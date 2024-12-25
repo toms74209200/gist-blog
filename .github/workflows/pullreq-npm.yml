@@ -7,6 +7,10 @@ on:
     paths:
       - "package.json"
 
+env:
+  CONFIG_ID: ${{ secrets.CONFIG_ID }}
+  PAT: ${{ secrets.PAT }}
+
 permissions:
   pull-requests: write
   contents: write
