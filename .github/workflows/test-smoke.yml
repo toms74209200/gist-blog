@@ -12,6 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
+      - name: Download fonts
+        run: |
+          curl -sSL -O https://github.com/googlefonts/morisawa-biz-ud-gothic/releases/download/v1.051/BIZUDGothic.zip
+          unzip BIZUDGothic.zip
       - name: Install dependencies
         run: bun install
       - name: Run test

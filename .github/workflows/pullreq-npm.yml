@@ -16,17 +16,11 @@ jobs:
     uses: ./.github/workflows/test-smoke.yml
     secrets: inherit
   test-small:
-    if: ${{ github.actor == 'dependabot[bot]' }}
     uses: ./.github/workflows/test-small.yml
-    secrets:
-      CONFIG_ID: ${{ secrets.CONFIG_ID }}
-      PAT: ${{ secrets.PAT }}
+    secrets: inherit
   test-medium:
-    if: ${{ github.actor == 'dependabot[bot]' }}
     uses: ./.github/workflows/test-medium.yml
-    secrets:
-      CONFIG_ID: ${{ secrets.CONFIG_ID }}
-      PAT: ${{ secrets.PAT }}
+    secrets: inherit
   auto-merge:
     if: ${{ github.actor == 'dependabot[bot]' }}
     runs-on: ubuntu-latest
