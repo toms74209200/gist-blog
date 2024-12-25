@@ -21,7 +21,7 @@ jobs:
         run: bun install
       - name: Run test
         id: test
-        run: bun run build || echo "status=$?" >> $GITHUB_OUTPUT
+        run: bun run build
         env:
           CONFIG_ID: ${{ secrets.CONFIG_ID }}
           PAT: ${{ secrets.PAT }}
