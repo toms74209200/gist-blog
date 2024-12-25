@@ -2,11 +2,6 @@ name: Test of smoke build
 
 on:
   workflow_call:
-    secrets:
-      CONFIG_ID:
-        required: true
-      PAT:
-        required: true
 
 jobs:
   test-smoke:
