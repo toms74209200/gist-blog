@@ -32,7 +32,7 @@ jobs:
         run: npm install
       - name: Install playwright
         working-directory: visual_test
-        run: npx playwright install --with-deps
+        run: npx playwright@latest install --with-deps
       - name: Run test
         id: test
         working-directory: visual_test
