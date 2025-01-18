@@ -10,6 +10,7 @@ env:
   CONFIG_ID: ${{ secrets.CONFIG_ID }}
   PAT: ${{ secrets.PAT }}
   LOCATION: ${{ secrets.LOCATION }}
+  PATH_PREFIX: ${{ secrets.PATH_PREFIX }}
 
 permissions:
   contents: read
