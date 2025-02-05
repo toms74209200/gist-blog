@@ -29,7 +29,7 @@ jobs:
           PAT: ${{ secrets.PAT }}
       - name: Install dependencies
         working-directory: visual_test
-        run: npm install
+        run: npm install playwright@latest
       - name: Install playwright
         working-directory: visual_test
         run: npx playwright@latest install --with-deps
