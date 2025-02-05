@@ -36,4 +36,4 @@ jobs:
       - name: Run test
         id: test
         working-directory: visual_test
-        run: npx playwright@latest test
+        run: npx playwright test
