@@ -47,13 +47,14 @@ const PostPage = ({
       <time className="text-gray-500">
         {new Date(pageContext.publishedAt).toLocaleDateString("ja-JP")}
       </time>
-      <Markdown
-        className="mt-8 markdown-body prose"
-        rehypePlugins={[rehypeRaw]}
-        remarkPlugins={[remarkGfm, remarkGemoji]}
-      >
-        {pageContext.content}
-      </Markdown>
+      <div className="mt-8 markdown-body prose">
+        <Markdown
+          rehypePlugins={[rehypeRaw]}
+          remarkPlugins={[remarkGfm, remarkGemoji]}
+        >
+          {pageContext.content}
+        </Markdown>
+      </div>
     </Layout>
   );
 };
