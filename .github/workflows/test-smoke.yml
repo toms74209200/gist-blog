@@ -24,3 +24,4 @@ jobs:
         env:
           CONFIG_ID: ${{ secrets.CONFIG_ID }}
           PAT: ${{ secrets.PAT }}
+          PATH_PREFIX: ${{ secrets.PATH_PREFIX }}
