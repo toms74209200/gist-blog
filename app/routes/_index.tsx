@@ -12,8 +12,9 @@ export async function loader({}: Route.LoaderArgs) {
 }
 
 export function meta({ data }: Route.MetaArgs) {
+  const siteUrl = import.meta.env.VITE_LOCATION;
   const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-  const ogImageUrl = `${base}/static/index.png`;
+  const ogImageUrl = `${siteUrl}${base}/static/index.png`;
 
   return [
     { title: data?.config.title },

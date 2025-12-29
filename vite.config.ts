@@ -5,6 +5,9 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   base: process.env.PATH_PREFIX ? `${process.env.PATH_PREFIX}/` : "/",
+  define: {
+    'import.meta.env.VITE_LOCATION': JSON.stringify(process.env.LOCATION || 'http://localhost:8000'),
+  },
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
   server: {
     port: 8000,
