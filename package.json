@@ -13,7 +13,7 @@
     "test:small": "vitest run --silent --config vite.small.config.ts",
     "test:medium": "vitest run --silent --config vite.medium.config.ts",
     "dev": "react-router dev",
-    "build": "react-router build",
+    "build": "react-router build && cp -r build/client/assets build/client/${PATH_PREFIX:-}/",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc --noEmit"
   },

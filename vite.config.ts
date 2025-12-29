@@ -4,6 +4,7 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
+  base: process.env.PATH_PREFIX ? `${process.env.PATH_PREFIX}/` : "/",
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
   server: {
     port: 8000,

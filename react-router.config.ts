@@ -10,6 +10,6 @@ export default {
 
     return ["/", ...posts.map((post) => `/${post.slug}`)];
   },
-  ssr: true,
+  ssr: false,
   basename: process.env.PATH_PREFIX || "/",
 } satisfies Config;
