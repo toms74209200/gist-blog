@@ -12,10 +12,14 @@ export async function loader({}: Route.LoaderArgs) {
 }
 
 export function meta({ data }: Route.MetaArgs) {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  const ogImageUrl = `${base}/static/index.png`;
+
   return [
     { title: data?.config.title },
     { property: "og:type", content: "website" },
     { property: "og:title", content: data?.config.title },
+    { property: "og:image", content: ogImageUrl },
     { name: "twitter:card", content: "summary_large_image" },
   ];
 }

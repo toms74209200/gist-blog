@@ -17,7 +17,10 @@ export async function loader({ params }: Route.LoaderArgs) {
   return { post, siteTitle: config.title };
 }
 
-export function meta({ data }: Route.MetaArgs) {
+export function meta({ data, params }: Route.MetaArgs) {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  const ogImageUrl = `${base}/static/${params.slug}.png`;
+
   return [
     { title: `${data?.post.title} | ${data?.siteTitle}` },
     { property: "og:type", content: "website" },
@@ -25,6 +28,7 @@ export function meta({ data }: Route.MetaArgs) {
       property: "og:title",
       content: `${data?.post.title} | ${data?.siteTitle}`,
     },
+    { property: "og:image", content: ogImageUrl },
     { name: "twitter:card", content: "summary_large_image" },
   ];
 }

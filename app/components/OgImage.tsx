@@ -1,16 +1,14 @@
-import { Node } from "gatsby";
-import { Properties } from "csstype";
-import React from "react";
+import type { CSSProperties } from "react";
 
-type PageContext = {
+type OgImageProps = {
   siteTitle: string;
-  title: string;
+  title?: string;
 };
 
-export default function (node: Node) {
-  const pageTitle = (node.context as PageContext)?.title ?? "";
-  const blogTitle = (node.context as PageContext)?.siteTitle ?? "";
-  const blogTitleStyle: Properties = pageTitle
+export default function OgImage({ siteTitle, title }: OgImageProps) {
+  const pageTitle = title ?? "";
+  const blogTitle = siteTitle;
+  const blogTitleStyle: CSSProperties = pageTitle
     ? {
         position: "absolute",
         bottom: "1rem",

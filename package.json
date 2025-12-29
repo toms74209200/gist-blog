@@ -13,7 +13,7 @@
     "test:small": "vitest run --silent --config vite.small.config.ts",
     "test:medium": "vitest run --silent --config vite.medium.config.ts",
     "dev": "react-router dev",
-    "build": "react-router build && cp -r build/client/assets build/client/${PATH_PREFIX:-}/",
+    "build": "react-router build && cp -r build/client/assets build/client/static build/client/${PATH_PREFIX:-}/",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc --noEmit"
   },
@@ -21,6 +21,7 @@
     "@react-router/node": "^7.11.0",
     "@react-router/serve": "^7.11.0",
     "@tailwindcss/postcss": "^4.0.4",
+    "isbot": "^5",
     "postcss": "^8.4.49",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
@@ -31,8 +32,8 @@
     "remark-gemoji": "^8.0.0",
     "remark-gfm": "^4.0.0",
     "satori": "^0.18.2",
-    "tailwindcss": "^4.0.3",
-    "isbot": "^5"
+    "sharp": "^0.34.5",
+    "tailwindcss": "^4.0.3"
   },
   "devDependencies": {
     "@react-router/dev": "^7.11.0",
