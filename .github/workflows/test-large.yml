@@ -24,7 +24,7 @@ jobs:
       - name: Rebuild sharp for current platform
         run: npm rebuild sharp
       - name: Launch server
-        run: bun run develop &
+        run: bun run dev &
         env:
           CONFIG_ID: ${{ secrets.CONFIG_ID }}
           LOCATION: ${{ secrets.LOCATION }}

@@ -10,5 +10,15 @@ node_modules/
 public
 src/gatsby-types.d.ts
 
+# React Router
+.react-router/
+build/
+*.timestamp-*.mjs
+
 *.ttf
 tmp-*
+
+.instructions
+wampa*
+CLAUDE.md
+.claude

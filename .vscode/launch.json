@@ -9,7 +9,7 @@
             "name": "Launch Program",
             "type": "node-terminal",
             "cwd": "${workspaceFolder}",
-            "command": "bun run develop",
+            "command": "bun run dev",
             "envFile": "${workspaceFolder}/.env",
         }
     ]
