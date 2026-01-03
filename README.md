@@ -51,8 +51,9 @@ You can run tests and launch server from Activity Bar.
 
 ## Environments
 
-- Visual Studio Code(Dev Container)
-- [Gatsby](https://www.gatsbyjs.com/)
+- [React Router](https://reactrouter.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [remarkjs/react-markdown](https://github.com/remarkjs/react-markdown#readme)
 
 ## License
 
