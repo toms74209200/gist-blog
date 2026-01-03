@@ -44,10 +44,10 @@ const PostPage = ({
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       <h1 className="text-5xl font-bold">{pageContext.title}</h1>
-      <time className="text-gray-500">
+      <time className="text-gray-500 dark:text-gray-400">
         {new Date(pageContext.publishedAt).toLocaleDateString("ja-JP")}
       </time>
-      <div className="mt-8 markdown-body prose">
+      <div className="mt-8 markdown-body prose dark:prose-invert">
         <Markdown
           rehypePlugins={[rehypeRaw]}
           remarkPlugins={[remarkGfm, remarkGemoji]}
