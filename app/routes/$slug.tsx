@@ -38,10 +38,10 @@ export default function Post({ loaderData }: Route.ComponentProps) {
   return (
     <>
       <h1 className="text-5xl font-bold">{loaderData.post.title}</h1>
-      <time className="text-gray-500">
+      <time className="text-gray-500 dark:text-gray-400">
         {new Date(loaderData.post.publishedAt).toLocaleDateString("ja-JP")}
       </time>
-      <div className="mt-8 markdown-body prose">
+      <div className="mt-8 markdown-body prose dark:prose-invert">
         <Markdown
           rehypePlugins={[rehypeRaw]}
           remarkPlugins={[remarkGfm, remarkGemoji]}
