@@ -31,7 +31,7 @@
     "rehype-raw": "^7.0.0",
     "remark-gemoji": "^8.0.0",
     "remark-gfm": "^4.0.0",
-    "satori": "^0.24.1",
+    "satori": "^0.25.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.0.3"
   },
