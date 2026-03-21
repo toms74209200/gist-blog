@@ -11,6 +11,11 @@ jobs:
       status: ${{ steps.test.outputs.status }}
     steps:
       - uses: actions/checkout@v6
+      - id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
       - uses: oven-sh/setup-bun@v2
       - name: Install dependencies
         run: bun install
@@ -19,4 +24,4 @@ jobs:
         run: bun run test:medium
         env:
           CONFIG_ID: ${{ secrets.CONFIG_ID }}
-          PAT: ${{ secrets.PAT }}
+          PAT: ${{ steps.app-token.outputs.token }}

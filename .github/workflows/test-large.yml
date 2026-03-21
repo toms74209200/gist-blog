@@ -11,6 +11,11 @@ jobs:
       status: ${{ steps.test.outputs.status }}
     steps:
       - uses: actions/checkout@v6
+      - id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -28,7 +33,7 @@ jobs:
         env:
           CONFIG_ID: ${{ secrets.CONFIG_ID }}
           LOCATION: ${{ secrets.LOCATION }}
-          PAT: ${{ secrets.PAT }}
+          PAT: ${{ steps.app-token.outputs.token }}
       - name: Install dependencies
         working-directory: visual_test
         run: npm install -D @playwright/test@latest
