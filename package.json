@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@react-router/node": "^7.11.0",
-    "@react-router/serve": "^7.11.0",
+    "@react-router/serve": "^8.0.1",
     "@tailwindcss/postcss": "^4.0.4",
     "isbot": "^5",
     "postcss": "^8.4.49",
