@@ -18,7 +18,7 @@
     "typecheck": "react-router typegen && tsc --noEmit"
   },
   "dependencies": {
-    "@react-router/node": "^7.11.0",
+    "@react-router/node": "^8.1.0",
     "@react-router/serve": "^7.11.0",
     "@tailwindcss/postcss": "^4.0.4",
     "isbot": "^5",
