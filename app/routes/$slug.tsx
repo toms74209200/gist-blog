@@ -17,17 +17,17 @@ export async function loader({ params }: Route.LoaderArgs) {
   return { post, siteTitle: config.title };
 }
 
-export function meta({ data, params }: Route.MetaArgs) {
+export function meta({ loaderData, params }: Route.MetaArgs) {
   const siteUrl = import.meta.env.VITE_LOCATION;
   const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   const ogImageUrl = `${siteUrl}${base}/static/${params.slug}.png`;
 
   return [
-    { title: `${data?.post.title} | ${data?.siteTitle}` },
+    { title: `${loaderData?.post.title} | ${loaderData?.siteTitle}` },
     { property: "og:type", content: "website" },
     {
       property: "og:title",
-      content: `${data?.post.title} | ${data?.siteTitle}`,
+      content: `${loaderData?.post.title} | ${loaderData?.siteTitle}`,
     },
     { property: "og:image", content: ogImageUrl },
     { name: "twitter:card", content: "summary_large_image" },
