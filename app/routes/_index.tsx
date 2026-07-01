@@ -11,15 +11,15 @@ export async function loader({}: Route.LoaderArgs) {
   return { posts, config };
 }
 
-export function meta({ data }: Route.MetaArgs) {
+export function meta({ loaderData }: Route.MetaArgs) {
   const siteUrl = import.meta.env.VITE_LOCATION;
   const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   const ogImageUrl = `${siteUrl}${base}/static/index.png`;
 
   return [
-    { title: data?.config.title },
+    { title: loaderData?.config.title },
     { property: "og:type", content: "website" },
-    { property: "og:title", content: data?.config.title },
+    { property: "og:title", content: loaderData?.config.title },
     { property: "og:image", content: ogImageUrl },
     { name: "twitter:card", content: "summary_large_image" },
   ];
