@@ -7,8 +7,6 @@
 
 node_modules/
 .cache/
-public
-src/gatsby-types.d.ts
 
 # React Router
 .react-router/

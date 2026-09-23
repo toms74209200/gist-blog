@@ -14,7 +14,7 @@ export default defineConfig({
     host: '0.0.0.0',
   },
   test: {
-    include: ["src/**/*.{test,spec}.?(c|m)[jt]s?(x)"],
+    include: ["app/**/*.{test,spec}.?(c|m)[jt]s?(x)"],
     exclude: ["visual_test/**"],
     reporters: process.env.ENV ? ["verbose", "github-actions"] : ["verbose"],
   },
