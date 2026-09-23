@@ -5,9 +5,6 @@
   "type": "module",
   "description": "gist-blog",
   "author": "toms74209200",
-  "keywords": [
-    "gatsby"
-  ],
   "scripts": {
     "test": "vitest run --silent",
     "test:small": "vitest run --silent --config vite.small.config.ts",
